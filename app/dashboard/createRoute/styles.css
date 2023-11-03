@@ -1,0 +1,79 @@
+h1 {
+    font-size: 30px;
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+
+h2 {
+    font-size: 25px;
+    font-weight: 600;
+    margin: 20px 0;
+    text-align: center;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+span {
+    text-decoration: underline;
+}
+
+.content {
+    display: flex;
+    justify-content: space-around;
+}
+
+.content > div {
+    width:45%;
+}
+
+.route {
+    border:1px black solid;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.activity {
+    border: 1px grey solid;
+    display:flex;
+    margin-bottom: 30px;
+}
+
+.activityImage {
+    object-fit: cover;
+    max-width:30%;
+    margin-right: 10px;
+}
+
+.ajouter {
+    border: none;
+    padding: 0.5rem 2rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    border: 1px rgb(56, 55, 56) solid;
+    border-radius: 10px;
+    width:120px;
+}
+
+button {
+    background-color: white;
+    color: black;
+    transition: 0.5s;
+}
+
+button:hover {
+    background-color: black;
+    color:white;
+    transition: 0.5s;
+}
+  

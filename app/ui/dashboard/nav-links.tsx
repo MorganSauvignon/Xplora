@@ -4,6 +4,7 @@ import {
   UserGroupIcon,
   HomeIcon,
   DocumentDuplicateIcon,
+  MapIcon
 } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -19,6 +20,7 @@ const links = [
     href: '/dashboard/activite',
     icon: DocumentDuplicateIcon,
   },
+  { name: 'Create route', href: '/dashboard/createRoute', icon: MapIcon }
 ];
 
 export default function NavLinks() {
