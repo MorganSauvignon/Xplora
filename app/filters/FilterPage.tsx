@@ -1,4 +1,3 @@
-// FilterPage.tsx
 import { useState } from "react";
 import CityFilter from "./CityFilter";
 
