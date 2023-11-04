@@ -7,21 +7,21 @@ export default function Page() {
 
     const apiKey = 'jYPSvVtAnPS4Pq1xdcbwo6v21NMhBesBQ1Jq87YzBCuW97OIHLAJBJ6xLlkKfN8v';
 
-    const fetchDistance = async (origin:any, destination:any) => {
+    const fetchDistance = async (origin: any, destination: any) => {
         try {
-          const response = await fetch(
-            `https://api.distancematrix.ai/maps/api/distancematrix/json?origins=${origin.latitude},${origin.longitude}&destinations=${destination.latitude},${destination.longitude}&key=${apiKey}`
-          );
-          if (response.ok) {
-            return await response.json();
-          } else {
-            console.error('Erreur lors de la requête vers l\'API de distance.');
-          }
+            const response = await fetch(
+                `https://api.distancematrix.ai/maps/api/distancematrix/json?origins=${origin.latitude},${origin.longitude}&destinations=${destination.latitude},${destination.longitude}&key=${apiKey}`
+            );
+            if (response.ok) {
+                return await response.json();
+            } else {
+                console.error('Erreur lors de la requête vers l\'API de distance.');
+            }
         } catch (error) {
-          console.error('Erreur lors de la requête vers l\'API de distance :', error);
+            console.error('Erreur lors de la requête vers l\'API de distance :', error);
         }
-      };
-      
+    };
+
 
     const [activities, setActivities] = useState([
         {
@@ -71,22 +71,32 @@ export default function Page() {
         },
     ]);
     const [route, setRoute] = useState([]); // Tableau d'objets JSON
+    const [trajet, setTrajet] = useState([]);
 
     const [errorMessage, setErrorMessage] = useState('');
 
     const addRoute = async (activity: { image: string; title: string; description: string; longitude: number; latitude: number; budget: string; rating: number; }, index: number) => {
-        if(route.length > 0) {
+        if (route.length > 0) {
             // Check distance x temps
             let destination = activity;
-            let origin= route[route.length - 1];
+            let origin = route[route.length - 1];
             console.log(origin);
             console.log(destination);
             try {
                 const response = await fetchDistance(origin, destination);
-          
+
                 if (response && (response.rows[0].elements[0].distance.value < 20000 || response.rows[0].elements[0].duration.value < 5400)) {
                     // Fonction pour ajouter une activité au tableau route
                     setRoute([...route, { ...activity }]);
+                    setTrajet([
+                        ...trajet,
+                        {
+                            distance: response.rows[0].elements[0].distance.text,
+                            duration: response.rows[0].elements[0].duration.text,
+                        },
+                    ]);   
+                    console.log(response);
+                    console.log(trajet);
                     const updatedActivities = activities.filter((_, i) => i !== index);
                     setActivities(updatedActivities);
                     setErrorMessage('');
@@ -94,16 +104,16 @@ export default function Page() {
                     setErrorMessage('La deuxième activité est trop éloignée ou prend trop de temps pour être ajoutée.');
                 }
                 console.log(response);
-              } catch (error) {
+            } catch (error) {
                 console.error('Erreur lors de la récupération des données de distance :', error);
-              }
+            }
         } else {
             // Fonction pour ajouter une activité au tableau route
             setRoute([...route, { ...activity }]);
             const updatedActivities = activities.filter((_, i) => i !== index);
             setActivities(updatedActivities);
         }
-        
+
     };
 
     return (
@@ -113,17 +123,25 @@ export default function Page() {
                 <div className='activities route'>
                     <h2>Votre itinéraire</h2>
                     <ul>
-                    {route.map((activity, index) => (
-                            <li key={index} className="activity">
-                                <img className='activityImage' src={activity.image} alt={activity.title} />
-                                <div className='activityContent'>
-                                    <h3>{activity.title}</h3>
-                                    <p>{activity.description}</p>
-                                    <p> <span>Coordonnées :</span> {activity.latitude}, {activity.longitude}</p>
-                                    <p> <span>Budget :</span> {activity.budget}</p>
-                                    <p> <span>Note :</span> {activity.rating} / 5</p>
-                                </div>
-                            </li>
+                        {route.map((activity, index) => (
+                            <div key={activity.title}>
+                                <li key={index} className="activity">
+                                    <img className='activityImage' src={activity.image} alt={activity.title} />
+                                    <div className='activityContent'>
+                                        <h3>{activity.title}</h3>
+                                        <p>{activity.description}</p>
+                                        <p> <span>Coordonnées :</span> {activity.latitude}, {activity.longitude}</p>
+                                        <p> <span>Budget :</span> {activity.budget}</p>
+                                        <p> <span>Note :</span> {activity.rating} / 5</p>
+                                    </div>
+                                </li>
+                                {trajet.length > 0 && trajet[index] && (
+                                    <div className="navInfo">
+                                        <p>Distance de {trajet[index].distance}</p>
+                                        <p>Temps de trajet de {trajet[index].duration}</p>
+                                    </div>
+                                )}
+                            </div>
                         ))}
                     </ul>
                     <div className="error-message">{errorMessage}</div>
