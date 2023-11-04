@@ -80,8 +80,6 @@ export default function Page() {
             // Check distance x temps
             let destination = activity;
             let origin = route[route.length - 1];
-            console.log(origin);
-            console.log(destination);
             try {
                 const response = await fetchDistance(origin, destination);
 
@@ -94,16 +92,13 @@ export default function Page() {
                             distance: response.rows[0].elements[0].distance.text,
                             duration: response.rows[0].elements[0].duration.text,
                         },
-                    ]);   
-                    console.log(response);
-                    console.log(trajet);
+                    ]);
                     const updatedActivities = activities.filter((_, i) => i !== index);
                     setActivities(updatedActivities);
                     setErrorMessage('');
                 } else {
                     setErrorMessage('La deuxième activité est trop éloignée ou prend trop de temps pour être ajoutée.');
                 }
-                console.log(response);
             } catch (error) {
                 console.error('Erreur lors de la récupération des données de distance :', error);
             }
