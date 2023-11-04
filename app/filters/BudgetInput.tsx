@@ -11,7 +11,7 @@ const BudgetInput: React.FC<BudgetInputProps> = ({ handleBudgetChange }) => {
         const value = e.target.value;
         if (!isNaN(Number(value)) || value === '') {
             setBudget(Number(value));
-            handleBudgetChange(e); // Appelle la fonction de gestion du changement de budget dans FilterPage
+            handleBudgetChange(e);
         }
     };
 
