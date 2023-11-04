@@ -3,6 +3,8 @@ import './styles.css';
 
 import { useState, useEffect } from 'react';
 
+const { open } = window;
+
 export default function Page() {
 
     const apiKey = 'jYPSvVtAnPS4Pq1xdcbwo6v21NMhBesBQ1Jq87YzBCuW97OIHLAJBJ6xLlkKfN8v';
@@ -111,6 +113,17 @@ export default function Page() {
 
     };
 
+    const openGoogleMaps = () => {
+        if (route.length > 0) {
+            // Construire l'URL Google Maps avec les coordonnées de chaque activité
+            const coordinates = route.map((activity) => `${activity.latitude},${activity.longitude}`);
+            const googleMapsURL = `https://www.google.com/maps/dir/${coordinates.join('/')}`;
+
+            // Ouvrir un nouvel onglet avec l'URL Google Maps
+            open(googleMapsURL);
+        }
+    };
+
     return (
         <div>
             <h1>Créez un parcours ! </h1>
@@ -159,6 +172,7 @@ export default function Page() {
                     </ul>
                 </div>
             </div>
+            <button className="itineraire-button" onClick={openGoogleMaps}>Itinéraire</button>
         </div>
     );
 }
