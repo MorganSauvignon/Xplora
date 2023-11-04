@@ -11,8 +11,14 @@ const FilterPage: React.FC = () => {
 
   const handleSaveSelections = () => {
     //@TODO gestion de la sélection
+    if (selectedCity !== "") {
     alert(`Vous avez sélectionné la ville ${selectedCity}`);
-  };
+    }
+    else {
+        alert("Vous n'avez sélectionné aucune ville");
+        }
+        
+};
   const handleCancel = () => {
     setSelectedCity("");
     history.back();
