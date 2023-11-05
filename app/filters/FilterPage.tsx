@@ -3,13 +3,15 @@ import CityFilter from "./CityFilter";
 import ScheduleSelector from "./ScheduleSelector";
 import { ScheduleSelectorProps } from "./ScheduleSelector";
 import BudgetInput from "./BudgetInput";
-
+import AccessibilityOption from "./AccessibilityOption";
 const FilterPage: React.FC = () => {
   const [selectedCity, setSelectedCity] = useState<string>("");
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
   const [selectedStartTime, setSelectedStartTime] = useState<string>("09:00");
   const [selectedEndTime, setSelectedEndTime] = useState<string>("17:00");
   const [budget, setBudget] = useState<number | null>(null);
+  const [isAccessibleOnly, setIsAccessibleOnly] = useState(false);
+
   const handleCityChange = (selectedCity: string) => {
     setSelectedCity(selectedCity);
   };
@@ -36,31 +38,26 @@ const FilterPage: React.FC = () => {
   const handleBudgetChange = (value: string) => {
     setBudget(value !== "" ? Number(value) : null);
   };
-
+const handleAccessibilityChange = (isChecked: boolean) => {
+    setIsAccessibleOnly(isChecked);
+  };
   const handleSaveSelections = () => {
     if (selectedCity === "") {
-      alert("Veuillez sélectionner une ville");
-      return;
-    } else if (budget === null || budget < 0) {
-      alert("Veuillez spécifier un budget valide en euros");
-      return;
-    } else {
-      alert(
-        "Ville sélectionnée : " +
-          selectedCity +
-          "\nDate sélectionnée : " +
-          selectedDate +
-          "\nHeure de début : " +
-          selectedStartTime +
-          "\nHeure de fin : " +
-          selectedEndTime +
-          "\nBudget : " +
-          budget +
-          "€"
-      );
-    }
-  };
-
+        alert("Veuillez sélectionner une ville");
+        return;
+      } else if (budget === null || budget < 0) {
+        alert("Veuillez spécifier un budget valide en euros");
+        return;
+      } else {
+        let selections = `Ville sélectionnée : ${selectedCity}\nDate sélectionnée : ${selectedDate}\nHeure de début : ${selectedStartTime}\nHeure de fin : ${selectedEndTime}\nBudget : ${budget}€`;
+    
+        if (isAccessibleOnly) {
+          selections += "\nLieux accessibles uniquement : Oui";
+        }
+    
+        alert(selections);
+      }
+    };
   const handleCancel = () => {
     setSelectedCity("");
     history.back();
@@ -79,6 +76,7 @@ const FilterPage: React.FC = () => {
           handleBudgetChange(event.target.value)
         }
       />
+       <AccessibilityOption handleAccessibilityChange={handleAccessibilityChange} />
       <div className="mt-4 flex justify-between">
         <button
           className="bg-gray-300 text-gray-800 py-2 px-4 rounded-md"
