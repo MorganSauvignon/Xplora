@@ -19,7 +19,8 @@ const links = [
     href: '/dashboard/activite',
     icon: DocumentDuplicateIcon,
   },
-  { name: 'Creer parcours', href: '/dashboard/createRoute', icon: MapIcon }
+  { name: 'Creer parcours', href: '/dashboard/createRoute', icon: MapIcon },
+  { name: 'Top 10', href: '/dashboard/viewTopTen', icon: MapIcon }
 ];
 
 export default function NavLinks() {
