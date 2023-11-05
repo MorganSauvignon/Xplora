@@ -9,9 +9,9 @@ export default async function ActiviteTable() {
       <div className="inline-block min-w-full align-middle">
         <div className="rounded-lg bg-gray-50 p-2 md:pt-0">
           <div className="md:hidden">
-            {activites?.map((activite) => (
+            {activites?.map((activite, index) => (
               <div
-                key={activites.indexOf(activite)}
+                key={index}
                 className="mb-2 w-full rounded-md bg-white p-4"
               >
                 <div className="flex items-center justify-between border-b pb-4">
@@ -33,7 +33,7 @@ export default async function ActiviteTable() {
                 <div className="flex w-full items-center justify-between pt-4">
                   <div>
                     <p className="text-xl font-medium">
-                      {activite.budget}
+                      {activite.ville}
                     </p>
                     <p>{activite.rating}</p>
                   </div>
@@ -51,7 +51,7 @@ export default async function ActiviteTable() {
                   Description
                 </th>
                 <th scope="col" className="px-3 py-5 font-medium">
-                  Budget
+                  Ville
                 </th>
                 <th scope="col" className="px-3 py-5 font-medium">
                   Rating
@@ -86,7 +86,7 @@ export default async function ActiviteTable() {
                     {activite.description}
                   </td>
                   <td className="whitespace-nowrap px-3 py-3">
-                    {activite.budget}
+                    {activite.ville}
                   </td>
                   <td className="whitespace-nowrap px-3 py-3">
                     {activite.rating}

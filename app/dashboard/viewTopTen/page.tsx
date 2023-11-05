@@ -103,7 +103,7 @@ const sortedTopTen = tabTopTen.slice().sort((a, b) => b.rating - a.rating);
 
   return (
     <div>
-      <h1>TOP 10</h1>
+      <h1>TOP 10 - Nice</h1>
       <ul className="card-container">
         {sortedTopTen.map((activity, index) => (
           <li key={index} className="card">

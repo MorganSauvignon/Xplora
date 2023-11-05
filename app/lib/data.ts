@@ -18,7 +18,7 @@ export async function fetchActivite() {
         type,
         parcours
       FROM activite
-      ORDER BY rating ASC
+      ORDER BY title ASC
     `;
     return data.rows;
   } catch (err) {

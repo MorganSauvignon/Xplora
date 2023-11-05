@@ -3,9 +3,8 @@
 import {
   DocumentDuplicateIcon,
   MapIcon, 
-  MagnifyingGlassIcon,
+  TrophyIcon,
   CalculatorIcon,
-  GlobeAltIcon
 } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -19,9 +18,9 @@ const links = [
     href: '/dashboard/activite',
     icon: DocumentDuplicateIcon,
   },
+  { name: 'Activités du Top 10', href: '/dashboard/viewTopTen', icon: TrophyIcon },
   { name: 'Creer parcours', href: '/dashboard/createRoute', icon: MapIcon }, 
-  {name: 'Générer un parcours', href: '/dashboard/filter', icon: MagnifyingGlassIcon}, 
-  { name: 'Top 10', href: '/dashboard/viewTopTen', icon: MapIcon }
+  {name: 'Générer un parcours', href: '/dashboard/filter', icon: CalculatorIcon}
 ];
 
 export default function NavLinks() {
