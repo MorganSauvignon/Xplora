@@ -76,4 +76,24 @@ button:hover {
     color:white;
     transition: 0.5s;
 }
-  
+
+/* Ajoutez ces styles dans votre fichier styles.css */
+
+.itineraire-button {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    background-color: #0077FF; /* Couleur de fond du bouton */
+    color: #FFFFFF; /* Couleur du texte du bouton */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.itineraire-button:hover {
+    background-color: #0055CC; /* Couleur de fond du bouton au survol */
+}
