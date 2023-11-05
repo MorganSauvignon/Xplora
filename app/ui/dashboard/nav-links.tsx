@@ -1,11 +1,11 @@
 'use client';
 
 import {
-  UserGroupIcon,
-  HomeIcon,
   DocumentDuplicateIcon,
   MapIcon, 
-  MagnifyingGlassIcon
+  MagnifyingGlassIcon,
+  CalculatorIcon,
+  GlobeAltIcon
 } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -14,14 +14,15 @@ import clsx from 'clsx';
 // Map of links to display in the side navigation.
 // Depending on the size of the application, this would be stored in a database.
 const links = [
-  { name: 'Home', href: '/dashboard', icon: HomeIcon },
   {
-    name: 'Activite',
+    name: 'Liste des activités',
     href: '/dashboard/activite',
     icon: DocumentDuplicateIcon,
   },
-  { name: 'Creer parcours', href: '/dashboard/createRoute', icon: MapIcon }, 
-  {name: 'Générer un parcours', href: '/dashboard/filter', icon: MagnifyingGlassIcon}, 
+  { name: 'Creer parcours', href: '/dashboard/createRoute', icon: GlobeAltIcon }, 
+  {name: 'Générer un parcours', href: '/dashboard/filter', icon: CalculatorIcon},
+  {name: 'Visualiser son parcours', href: '/dashboard/parcours', icon: MapIcon}, 
+
 ];
 
 export default function NavLinks() {

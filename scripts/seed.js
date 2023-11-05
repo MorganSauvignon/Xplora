@@ -10,20 +10,18 @@ async function seedActivite(client) {
 
     // Create the "activite" table if it doesn't exist
     const createTable = await client.sql`
+    DROP TABLE activite;
     CREATE TABLE IF NOT EXISTS activite (
-    id INT NOT NULL,
-    Nom_du_POI VARCHAR(255) NOT NULL,
-    Latitude FLOAT NOT NULL,
-    Longitude FLOAT NOT NULL,
-    Adresse_postale VARCHAR(255),
-    Code_postal_et_commune VARCHAR(255),
-    Createur_de_la_donnee VARCHAR(255),
-    SIT_diffuseur VARCHAR(255),
-    Date_de_mise_a_jour DATE,
-    Contacts_du_POI VARCHAR(255),
-    Classements_du_POI VARCHAR(255),
-    Description VARCHAR(255),
-    URI_ID_du_POI VARCHAR(255)
+    image VARCHAR(255),
+    title VARCHAR(255) NOT NULL,
+    description TEXT,
+    ville VARCHAR(255),
+    longitude FLOAT NOT NULL,
+    latitude FLOAT NOT NULL,
+    budget FLOAT,
+    rating FLOAT,
+    type VARCHAR(255),
+    parcours BOOLEAN
   );
 `;
 
@@ -33,8 +31,8 @@ async function seedActivite(client) {
     const insertedActivite = await Promise.all(
       activite.map(
         (activite) => client.sql`
-        INSERT INTO activite (id, Nom_du_POI, Latitude, Longitude, Adresse_postale, Code_postal_et_commune, Createur_de_la_donnee, SIT_diffuseur, Date_de_mise_a_jour, Contacts_du_POI, Classements_du_POI, Description, URI_ID_du_POI)
-        VALUES (${activite.id}, ${activite.Nom_du_POI}, ${activite.Latitude}, ${activite.Longitude}, ${activite.Adresse_postale}, ${activite.Code_postal_et_commune}, ${activite.Createur_de_la_donnee}, ${activite.SIT_diffuseur}, ${activite.Date_de_mise_a_jour}, ${activite.Contacts_du_POI}, ${activite.Classements_du_POI}, ${activite.Description}, ${activite.URI_ID_du_POI})
+        INSERT INTO activite (image, title, description, ville, longitude, latitude, budget, rating, type, parcours)
+        VALUES (${activite.image}, ${activite.title}, ${activite.description}, ${activite.ville}, ${activite.longitude}, ${activite.latitude}, ${activite.budget}, ${activite.rating}, ${activite.type}, ${activite.parcours})
       `,
       ),
     );

@@ -1,5 +1,5 @@
 "use client";
-import FilterPage from "../../filters/FilterPage";
+import FilterPage from "../../ui/filter/FilterPage";
 
 export default function Page() {
     return <FilterPage/>;

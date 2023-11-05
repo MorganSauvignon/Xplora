@@ -1,3 +1,3 @@
 export default function Page() {
-  return <p>Parcours Page</p>;
+  return <p>Visualiser Parcours Page</p>;
 }
