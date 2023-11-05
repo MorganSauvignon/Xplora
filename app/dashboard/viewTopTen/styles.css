@@ -1,0 +1,45 @@
+/* styles.css (ou tout autre nom que vous préférez) */
+
+h1{
+    font-size: 30px;
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .card:hover {
+    background-color: #f0f0f0; /* Couleur de fond au survol */
+  }
+  
+  .card {
+    flex-basis: calc(20% - 20px); /* Pour avoir 5 éléments par ligne (20% de la largeur moins les marges) */
+    margin: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .card img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .card h2 {
+    margin: 10px 0;
+  }
+  
+  .card p {
+    margin: 10px 0;
+  }
+  
+  /* Ajoutez d'autres styles personnalisés selon vos préférences */
+  
