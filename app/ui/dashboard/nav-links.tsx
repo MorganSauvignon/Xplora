@@ -4,7 +4,8 @@ import {
   UserGroupIcon,
   HomeIcon,
   DocumentDuplicateIcon,
-  MapIcon
+  MapIcon, 
+  MagnifyingGlassIcon
 } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -19,7 +20,8 @@ const links = [
     href: '/dashboard/activite',
     icon: DocumentDuplicateIcon,
   },
-  { name: 'Creer parcours', href: '/dashboard/createRoute', icon: MapIcon }
+  { name: 'Creer parcours', href: '/dashboard/createRoute', icon: MapIcon }, 
+  {name: 'Générer un parcours', href: '/dashboard/filter', icon: MagnifyingGlassIcon}, 
 ];
 
 export default function NavLinks() {
