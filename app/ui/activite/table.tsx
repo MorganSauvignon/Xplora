@@ -1,8 +1,9 @@
 import Image from 'next/image';
-import { fetchActivite } from '@/app/lib/data';
+//import { fetchActivite } from '@/app/lib/data';
+import tabActivite from '@/app/lib/activite.json';
 
 export default async function ActiviteTable() {
-  const activites = await fetchActivite();
+  const activites = tabActivite;
 
   return (
     <div className="mt-6 flow-root">
