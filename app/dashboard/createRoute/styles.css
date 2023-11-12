@@ -1,89 +1,132 @@
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Heading Styles */
 h1 {
-    font-size: 30px;
+    font-size: 36px;
     text-align: center;
-    width: 100%;
     font-weight: bold;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
+    color: #333; /* Choisissez une couleur adaptée */
 }
 
 h2 {
-    font-size: 25px;
+    font-size: 28px;
     font-weight: 600;
     margin: 20px 0;
     text-align: center;
+    color: #555; /* Choisissez une couleur adaptée */
 }
 
 h3 {
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 600;
+    color: #777; /* Choisissez une couleur adaptée */
 }
 
 span {
-    text-decoration: underline;
+    color: rgb(0, 89, 190); /* Choisissez une couleur adaptée */
+    width: 100px; /* Ajustez la largeur selon vos besoins */
+    font-weight: bold;
 }
 
+
+
+/* Content Styles */
 .content {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .content > div {
-    width:45%;
+    width: 45%;
+    margin-bottom: 20px;
 }
 
 .route {
-    border:1px black solid;
+    background: white;
+    width: 100%;
+    display: inline-block;
+    border-radius: 15px;
+    box-shadow: -1px 15px 30px -12px black;
+    padding: 20px;
 }
 
+/* Error Message Styles */
 .error-message {
-    color: red;
+    color: #FF0000; /* Choisissez une couleur adaptée */
     font-weight: bold;
     margin-top: 10px;
 }
 
+/* Activity Styles */
 .activity {
-    border: 1px grey solid;
-    display:flex;
+    background: white;
+    width: 100%;
+    display: flex;
+    border-radius: 15px;
+    box-shadow: -1px 15px 30px -12px black;
     margin-bottom: 30px;
+    overflow: hidden;
 }
 
 .activityImage {
     object-fit: cover;
-    max-width:30%;
-    margin-right: 10px;
+    max-width: 30%;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
 }
 
+.activityContent {
+    padding: 20px;
+    flex-grow: 1;
+}
+
+.navInfo {
+    margin-top: 10px;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+.navInfo p {
+    font-size: 14px;
+    color: #555;
+    font-weight: bold;
+}
+
+/* Button Styles */
 .ajouter {
+    background-color: rgb(0, 75, 187); /* Couleur adaptée */
+    color: white;
     border: none;
     padding: 0.5rem 2rem;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     cursor: pointer;
-    border: 1px rgb(56, 55, 56) solid;
     border-radius: 10px;
-    width:120px;
+    width: 120px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-button {
-    background-color: white;
-    color: black;
-    transition: 0.5s;
+.ajouter:hover {
+    background-color: #0055ccc7; /* Couleur adaptée */
 }
-
-button:hover {
-    background-color: black;
-    color:white;
-    transition: 0.5s;
-}
-
-/* Ajoutez ces styles dans votre fichier styles.css */
 
 .itineraire-button {
     display: block;
     margin: 0 auto;
     padding: 10px 20px;
-    background-color: #0077FF; /* Couleur de fond du bouton */
+    background-color: rgb(0, 75, 187); /* Couleur de fond du bouton */
     color: #FFFFFF; /* Couleur du texte du bouton */
     border: none;
     border-radius: 5px;
@@ -95,5 +138,20 @@ button:hover {
 }
 
 .itineraire-button:hover {
-    background-color: #0055CC; /* Couleur de fond du bouton au survol */
+    background-color: #0055ccc7; /* Couleur de fond du bouton au survol */
+}
+
+/* General Button Styles */
+button {
+    background-color: white;
+    color: black;
+    transition: 0.5s;
+    border: 1px solid #383738; /* Couleur adaptée */
+    border-radius: 5px;
+    padding: 8px 16px;
+}
+
+button:hover {
+    background-color: #383738; /* Couleur adaptée */
+    color: white;
 }

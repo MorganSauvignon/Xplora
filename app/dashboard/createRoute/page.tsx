@@ -5,6 +5,8 @@ import { useState, useEffect } from 'react';
 
 const { open } = window;
 
+const myStyle = { marginTop: '20px' };
+
 export default function Page() {
 
     const apiKey = 'jYPSvVtAnPS4Pq1xdcbwo6v21NMhBesBQ1Jq87YzBCuW97OIHLAJBJ6xLlkKfN8v';
@@ -138,9 +140,9 @@ export default function Page() {
                                     <div className='activityContent'>
                                         <h3>{activity.title}</h3>
                                         <p>{activity.description}</p>
-                                        <p> <span>Coordonnées :</span> {activity.latitude}, {activity.longitude}</p>
+                                        <p style={myStyle}> <span>Coordonnées :</span> {activity.latitude}, {activity.longitude}</p>
                                         <p> <span>Budget :</span> {activity.budget}</p>
-                                        <p> <span>Note :</span> {activity.rating} / 5</p>
+                                        <p> <span>Note :</span> {activity.rating} / 5 ⭐</p>
                                     </div>
                                 </li>
                                 {trajet.length > 0 && trajet[index] && (
@@ -162,9 +164,9 @@ export default function Page() {
                                 <div className='activityContent'>
                                     <h3>{activity.title}</h3>
                                     <p>{activity.description}</p>
-                                    <p> <span>Coordonnées :</span> {activity.latitude}, {activity.longitude}</p>
+                                    <p style={myStyle}> <span>Coordonnées :</span> {activity.latitude}, {activity.longitude}</p>
                                     <p> <span>Budget :</span> {activity.budget}</p>
-                                    <p> <span>Note :</span> {activity.rating} / 5</p>
+                                    <p> <span>Note :</span> {activity.rating} / 5 ⭐</p>
                                 </div>
                                 <button className='ajouter' onClick={() => addRoute(activity, index)}>Ajouter activité</button> {/* Bouton pour ajouter un élément */}
                             </li>
