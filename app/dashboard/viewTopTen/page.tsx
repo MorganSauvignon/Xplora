@@ -110,7 +110,7 @@ const sortedTopTen = tabTopTen.slice().sort((a, b) => b.rating - a.rating);
             <h2>{activity.title}</h2>
             <img src={activity.image} alt={activity.title} />
             <p>{activity.description}</p>
-            <p>Rating: {activity.rating}</p>
+            <p> <span>Note : </span> {activity.rating} / 5 ⭐</p>
           </li>
         ))}
       </ul>
