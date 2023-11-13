@@ -41,7 +41,7 @@ export default function Page() {
             image: 'https://www.francebleu.fr/s3/cruiser-production/2023/09/9bdf8760-955b-4228-9374-1f48fec93491/1200x680_sc_csm-header-nice-patrimoine-188bdb26bd.jpg',
             title: 'Promenade des Anglais',
             description: "La Promenade des Anglais est l'endroit idéal pour une belle balade au bord de la mer.",
-            longitude: 7.252095,
+            longitude: 6.252095,
             latitude: 43.693177,
             budget: 'Gratuit',
             rating: 4.8,
